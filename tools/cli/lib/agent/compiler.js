@@ -282,6 +282,9 @@ async function compileToXml(agentYaml, agentName = '', targetPath = '') {
   if (meta.capabilities) {
     agentAttrs.push(`capabilities="${escapeXml(meta.capabilities)}"`);
   }
+  if (meta.hidden) {
+    agentAttrs.push('localskip="true"');
+  }
 
   xml += `<agent ${agentAttrs.join(' ')}>\n`;
 
